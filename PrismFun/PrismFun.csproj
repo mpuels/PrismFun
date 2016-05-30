@@ -84,6 +84,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="ViewModels\Telefonbucheintrag.cs" />
     <Compile Include="ViewModels\TelephoneBookViewModel.cs" />
     <Page Include="MainWindow.xaml">
