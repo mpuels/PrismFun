@@ -4,9 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrismFun"
+        xmlns:ViewModels="clr-namespace:PrismFun.ViewModels"
+        xmlns:prism="http://prismlibrary.com/"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <ViewModels:TelephoneBookViewModel/>
+    </Window.DataContext>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="CurrentSelectionStackPanel" Orientation="Horizontal"
+                    Grid.Row="0">
+            <TextBox x:Name="Vorname" Text="{Binding Vorname, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox x:Name="Nachname" Text="{Binding Nachname, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox x:Name="Telefonnummer" Text="{Binding Telefonnummer, UpdateSourceTrigger=PropertyChanged}" />
+            <Button x:Name="Submit" Command="{Binding SubmitCommand}">
+                Hinzufügen
+            </Button>
+            <TextBlock x:Name="Initialen" Text="{Binding Initialen}" />
+        </StackPanel>
+        <ListBox x:Name="ItemsListBox" ItemsSource="{Binding Eintraege}"
+                 Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Vorname}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Nachname}"/>
+                        <TextBlock Grid.Column="2" Text="{Binding Telefonnummer}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <DataGrid x:Name="TelefonbuchDataGrid" ItemsSource="{Binding Eintraege}" Grid.Row="2">
+            
+        </DataGrid>
     </Grid>
 </Window>
