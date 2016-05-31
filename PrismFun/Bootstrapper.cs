@@ -10,7 +10,7 @@ namespace PrismFun
     {
         protected override DependencyObject CreateShell()
         {
-            return Container.Resolve<MainWindow>(new ResolverOverride[] { });
+            return Container.Resolve<MainWindow>();
         }
 
         protected override void InitializeShell()
