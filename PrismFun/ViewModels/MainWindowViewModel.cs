@@ -25,7 +25,6 @@ namespace PrismFun.ViewModels
         {
             // TODO Ersetze "ContentRegion" durch Konstante.
             regionManager.RequestNavigate("ContentRegion", uri);
-            System.Console.WriteLine("uri = " + uri);
         }
     }
 }

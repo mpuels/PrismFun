@@ -21,7 +21,7 @@ namespace PrismFun
         {
             base.ConfigureContainer();
 
-            Container.RegisterTypeForNavigation<TelephoneBookView>("TelephoneBookView");
+            Container.RegisterTypeForNavigation<TelephoneBookView>();
         }
     }
 }
