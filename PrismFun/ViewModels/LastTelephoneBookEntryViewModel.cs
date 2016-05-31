@@ -2,12 +2,14 @@
 using Prism.Events;
 using Prism.Mvvm;
 using PrismFun.Events;
+using PrismFun.Models;
 
 namespace PrismFun.ViewModels
 {
     public class LastTelephoneBookEntryViewModel : BindableBase
     {
-        public LastTelephoneBookEntryViewModel(IEventAggregator eventAggregator)
+        public LastTelephoneBookEntryViewModel(IEventAggregator eventAggregator,
+                                               IDummyService dummyService)
         {
             this.eventAggregator = eventAggregator;
 

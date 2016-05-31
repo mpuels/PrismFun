@@ -2,6 +2,7 @@
 using Microsoft.Practices.Unity;
 using System.Windows;
 using PrismFun.Views;
+using PrismFun.Models;
 
 namespace PrismFun
 {
@@ -20,6 +21,8 @@ namespace PrismFun
         protected override void ConfigureContainer()
         {
             base.ConfigureContainer();
+
+            Container.RegisterType<IDummyService, DummyService>();
 
             Container.RegisterTypeForNavigation<TelephoneBookView>();
             Container.RegisterTypeForNavigation<LastTelephoneBookEntryView>();
