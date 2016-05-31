@@ -22,6 +22,7 @@ namespace PrismFun
             base.ConfigureContainer();
 
             Container.RegisterTypeForNavigation<TelephoneBookView>();
+            Container.RegisterTypeForNavigation<LastTelephoneBookEntryView>();
         }
     }
 }

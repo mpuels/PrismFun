@@ -1,5 +1,7 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
+using PrismFun.Events;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,8 +14,10 @@ namespace PrismFun.ViewModels
     {
 
         #region constructors
-        public TelephoneBookViewModel()
+        public TelephoneBookViewModel(IEventAggregator eventAggregator)
         {
+            this.eventAggregator = eventAggregator;
+
             vorname = "Marc";
             nachname = "Püls";
             telefonnummer = "0176 40328486";
@@ -93,6 +97,7 @@ namespace PrismFun.ViewModels
             };
 
             eintraege.Add(eintrag);
+            eventAggregator.GetEvent<InsertEvent>().Publish(eintrag.ToString());
         }
 
         private bool canSubmit(object arg)
@@ -104,6 +109,8 @@ namespace PrismFun.ViewModels
         #endregion
 
         #region private fields
+        private IEventAggregator eventAggregator;
+
         private string vorname;
         private string nachname;
         private string telefonnummer;

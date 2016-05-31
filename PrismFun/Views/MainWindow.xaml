@@ -19,6 +19,9 @@
             <Button x:Name="TelephoneBookView" Command="{Binding NavigateCommand}" CommandParameter="TelephoneBookView">
                 TelephoneBookView
             </Button>
+            <Button x:Name="LastTelephoneBookEntryView" Command="{Binding NavigateCommand}" CommandParameter="LastTelephoneBookEntryView">
+                LastTelephoneBookEntryView
+            </Button>
         </StackPanel>
 
         <ContentControl Grid.Row="2" prism:RegionManager.RegionName="ContentRegion"/>
