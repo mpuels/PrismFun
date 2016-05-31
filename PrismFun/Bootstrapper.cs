@@ -1,6 +1,7 @@
 ﻿using Prism.Unity;
 using Microsoft.Practices.Unity;
 using System.Windows;
+using PrismFun.Views;
 
 namespace PrismFun
 {
@@ -14,6 +15,13 @@ namespace PrismFun
         protected override void InitializeShell()
         {
             Application.Current.MainWindow.Show();
+        }
+
+        protected override void ConfigureContainer()
+        {
+            base.ConfigureContainer();
+
+            Container.RegisterTypeForNavigation<TelephoneBookView>("TelephoneBookView");
         }
     }
 }
